@@ -17,6 +17,9 @@ export default function LeaderboardAdmin() {
   const [activePlayer, setActivePlayer] = useState<string | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
+  // Collapse State (Tracks which players are collapsed by IGN)
+  const [collapsed, setCollapsed] = useState<Record<string, boolean>>(Object.fromEntries((initialData.players || []).map(p => [p.ign, true])));
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -34,12 +37,18 @@ export default function LeaderboardAdmin() {
   const addPlayer = (ign: string) => {
     if (!ign || players.find(p => p.ign.toLowerCase() === ign.toLowerCase())) return;
     setPlayers([...players, { ign, shinies: [], score: 0 }]);
+    // Ensure new players are expanded by default
+    setCollapsed(prev => ({ ...prev, [ign]: false }));
   };
 
   const removePlayer = (ign: string) => {
     if (confirm(`Delete ${ign} from database?`)) {
       setPlayers(players.filter(p => p.ign !== ign));
     }
+  };
+
+  const toggleCollapse = (ign: string) => {
+    setCollapsed(prev => ({ ...prev, [ign]: !prev[ign] }));
   };
 
   const addShinyToPlayer = (playerIgn: string, monDexNo: number) => {
@@ -123,7 +132,7 @@ export default function LeaderboardAdmin() {
           <div className="flex flex-col md:flex-row justify-between items-end gap-6">
             <div className="space-y-2">
               <input
-                className="bg-transparent text-4xl font-black uppercase outline-none border-b-2 border-dashed border-[#00ff41]/30 focus:border-[#00ff41] transition-all tracking-tighter"
+                className="bg-transparent text-4xl font-black outline-none border-b-2 border-dashed border-[#00ff41]/30 focus:border-[#00ff41] transition-all tracking-tighter"
                 value={teamName}
                 onChange={(e) => setTeamName(e.target.value)}
               />
@@ -165,10 +174,18 @@ export default function LeaderboardAdmin() {
         {/* Players List */}
         <div className="space-y-6">
           {leaderboardData.players.map((player) => (
-            <div key={player.ign} className="border border-[#00ff41]/60 bg-black shadow-[5px_5px_0px_rgba(0,255,65,0.1)]">
-              <div className="border-b border-[#00ff41]/60 p-4 flex justify-between items-center bg-[#00ff41]/5">
-                <div className="flex items-center gap-10">
-                  <h3 className="text-2xl font-black tracking-tighter uppercase">{player.ign}</h3>
+            <div key={player.ign} className="border border-[#00ff41]/60 bg-black shadow-[5px_5px_0px_rgba(0,255,65,0.1)] transition-all">
+
+              {/* Player Header - Now Clickable to Toggle */}
+              <div
+                className="border-b border-[#00ff41]/60 p-4 flex justify-between items-center bg-[#00ff41]/5 cursor-pointer hover:bg-[#00ff41]/10 transition-colors"
+                onClick={() => toggleCollapse(player.ign)}
+              >
+                <div className="flex items-center gap-6 sm:gap-10">
+                  <span className="text-xl font-bold w-6 text-center select-none">
+                    {collapsed[player.ign] ? '[+]' : '[-]'}
+                  </span>
+                  <h3 className="text-2xl font-black tracking-tighter truncate max-w-[150px] sm:max-w-none">{player.ign}</h3>
                   <div className="flex flex-col text-center">
                     <span className="text-[10px] opacity-50 font-bold uppercase tracking-widest leading-none mb-1">SHINIES</span>
                     <span className="text-2xl font-black text-emerald-500">{player.shinies.length}</span>
@@ -178,70 +195,78 @@ export default function LeaderboardAdmin() {
                     <span className="text-2xl font-black text-emerald-500">{player.score}</span>
                   </div>
                 </div>
-                <button onClick={() => removePlayer(player.ign)} className="text-[10px] text-[#00ff41]/40 hover:text-red-500 border border-[#00ff41]/20 px-3 py-1 font-bold">DELETE PLAYER</button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); removePlayer(player.ign); }}
+                  className="text-[10px] text-[#00ff41]/40 hover:text-red-500 hover:border-red-500 border border-[#00ff41]/20 px-3 py-1 font-bold transition-colors"
+                >
+                  DELETE PLAYER
+                </button>
               </div>
 
-              <div className="p-4 space-y-4">
-                {/* Searchable Combobox */}
-                <div className="relative">
-                  <input
-                    type="text"
-                    autoComplete="off"
-                    placeholder={`+ SEARCH POKEMON FOR ${player.ign.toUpperCase()}...`}
-                    className="w-full bg-black border border-[#00ff41]/30 p-3 text-xs text-[#00ff41] outline-none focus:border-[#00ff41] uppercase tracking-widest"
-                    value={activePlayer === player.ign ? search : ""}
-                    onKeyDown={(e) => handleKeyDown(e, player.ign)}
-                    onChange={(e) => {
-                      setActivePlayer(player.ign);
-                      setSearch(e.target.value);
-                      setSelectedIndex(-1);
-                    }}
-                  />
-                  {activePlayer === player.ign && filteredMons.length > 0 && (
-                    <div className="absolute z-50 w-full bg-black border-x border-b border-[#00ff41] shadow-[0_10px_30px_rgba(0,0,0,0.9)]">
-                      {filteredMons.map((m, i) => (
-                        <div
-                          key={m.dexNo}
-                          role="button"
-                          tabIndex={0}
-                          className={`p-2 cursor-pointer flex justify-between items-center text-xs border-b border-[#00ff41]/10 last:border-0 outline-none
-                            ${selectedIndex === i ? 'bg-[#00ff41] text-black' : 'hover:bg-[#00ff41]/20'}
-                          `}
-                          onClick={() => addShinyToPlayer(player.ign, m.dexNo)}
-                          onMouseEnter={() => setSelectedIndex(i)}
-                        >
-                          <span>#{String(m.dexNo).padStart(3, '0')} {m.name.toUpperCase()}</span>
-                          {selectedIndex === i && <span className="text-[10px] font-black tracking-tighter">[ PRESS ENTER ]</span>}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Shinies Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-10 gap-3">
-                  {player.shinies.map((s, idx) => (
-                    <div key={idx} className="border border-[#00ff41]/20 p-2 relative group hover:border-[#00ff41] bg-black transition-all">
-                      <button onClick={() => removeShiny(player.ign, idx)} className="absolute -top-1 -right-1 bg-[#00ff41] text-black text-[10px] w-4 h-4 flex items-center justify-center font-bold z-10 opacity-0 group-hover:opacity-100 transition-opacity">✕</button>
-                      <img src={s.mon.spriteFront} alt={s.mon.name} className="w-12 h-12 mx-auto pixelated drop-shadow-[0_0_5px_rgba(0,255,65,0.4)]" />
-                      <p className="text-[8px] text-center mt-2 opacity-40 uppercase truncate tracking-tighter">{s.mon.name}</p>
-                      <div className="flex justify-center gap-1 mt-2">
-                        {(['secret', 'alpha', 'safari'] as const).map(mod => (
-                          <button
-                            key={mod}
-                            onClick={() => toggleModifier(player.ign, idx, mod)}
-                            className={`text-[8px] w-5 h-5 border ${s.modifiers[mod] ? 'bg-[#00ff41] text-black border-[#00ff41]' : 'border-[#00ff41]/20 text-[#00ff41]/20'} font-bold transition-all relative`}
+              {/* Player Body - Conditionally Rendered */}
+              {!collapsed[player.ign] && (
+                <div className="p-4 space-y-4">
+                  {/* Searchable Combobox */}
+                  <div className="relative">
+                    <input
+                      type="text"
+                      autoComplete="off"
+                      placeholder={`+ SEARCH POKEMON FOR ${player.ign.toUpperCase()}...`}
+                      className="w-full bg-black border border-[#00ff41]/30 p-3 text-xs text-[#00ff41] outline-none focus:border-[#00ff41] uppercase tracking-widest"
+                      value={activePlayer === player.ign ? search : ""}
+                      onKeyDown={(e) => handleKeyDown(e, player.ign)}
+                      onChange={(e) => {
+                        setActivePlayer(player.ign);
+                        setSearch(e.target.value);
+                        setSelectedIndex(-1);
+                      }}
+                    />
+                    {activePlayer === player.ign && filteredMons.length > 0 && (
+                      <div className="absolute z-50 w-full bg-black border-x border-b border-[#00ff41] shadow-[0_10px_30px_rgba(0,0,0,0.9)]">
+                        {filteredMons.map((m, i) => (
+                          <div
+                            key={m.dexNo}
+                            role="button"
+                            tabIndex={0}
+                            className={`p-2 cursor-pointer flex justify-between items-center text-xs border-b border-[#00ff41]/10 last:border-0 outline-none
+                              ${selectedIndex === i ? 'bg-[#00ff41] text-black' : 'hover:bg-[#00ff41]/20'}
+                            `}
+                            onClick={() => addShinyToPlayer(player.ign, m.dexNo)}
+                            onMouseEnter={() => setSelectedIndex(i)}
                           >
-                            {mod == 'secret' && <Image src={"/secret_shiny.png"} alt='ss' fill />}
-                            {mod == 'alpha' && <Image src={"/alpha.png"} alt='alpha' fill />}
-                            {mod == 'safari' && <Image src={"/safari.png"} alt='safari' fill />}
-                          </button>
+                            <span>#{String(m.dexNo).padStart(3, '0')} {m.name.toUpperCase()}</span>
+                            {selectedIndex === i && <span className="text-[10px] font-black tracking-tighter">[ PRESS ENTER ]</span>}
+                          </div>
                         ))}
                       </div>
-                    </div>
-                  ))}
+                    )}
+                  </div>
+
+                  {/* Shinies Grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-10 gap-3">
+                    {player.shinies.map((s, idx) => (
+                      <div key={idx} className="border border-[#00ff41]/20 p-2 relative group hover:border-[#00ff41] bg-black transition-all">
+                        <button onClick={() => removeShiny(player.ign, idx)} className="absolute -top-1 -right-1 bg-[#00ff41] text-black text-[10px] w-4 h-4 flex items-center justify-center font-bold z-10 opacity-0 group-hover:opacity-100 transition-opacity">✕</button>
+                        <img src={s.mon.spriteFront} alt={s.mon.name} className="w-12 h-12 mx-auto pixelated drop-shadow-[0_0_5px_rgba(0,255,65,0.4)]" loading="lazy" />
+                        <p className="text-[8px] text-center mt-2 opacity-40 uppercase truncate tracking-tighter">{s.mon.name}</p>
+                        <div className="flex justify-center gap-1 mt-2">
+                          {(['secret', 'alpha', 'safari'] as const).map(mod => (
+                            <button
+                              key={mod}
+                              onClick={() => toggleModifier(player.ign, idx, mod)}
+                              className={`text-[8px] w-5 h-5 border ${s.modifiers[mod] ? 'bg-[#00ff41] text-black border-[#00ff41]' : 'border-[#00ff41]/20 text-[#00ff41]/20'} font-bold transition-all relative`}
+                            >
+                              {mod == 'secret' && <Image src={"/secret_shiny.png"} alt='ss' fill />}
+                              {mod == 'alpha' && <Image src={"/alpha.png"} alt='alpha' fill />}
+                              {mod == 'safari' && <Image src={"/safari.png"} alt='safari' fill />}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </div>

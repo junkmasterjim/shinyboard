@@ -100,15 +100,15 @@ export default function LeaderboardTable({ players }: LeaderboardTableProps) {
                 <tr
                   onClick={() => toggleRow(player.ign)}
                   className={`
-                    cursor-pointer transition-colors border-b border-emerald-900/50
-                    hover:bg-emerald-900/30 
+                    cursor-pointer transition-colors border-b border-emerald-900/50 h-12 flex-nowrap items-center
+                    hover:bg-emerald-900/30
                     ${isExpanded ? 'bg-emerald-900/20' : ''}
                   `}
                 >
                   <td className="py-1 px-2 border-r border-emerald-900/50 text-emerald-600">
                     {String(index + 1).padStart(2, '0')}
                   </td>
-                  <td className="py-1 px-2 border-r border-emerald-900/50 font-bold uppercase tracking-wider flex items-center justify-between">
+                  <td className="py-1 px-2 border-r border-emerald-900/50 font-bold uppercase tracking-wider flex items-center justify-between h-12">
                     <span>{player.ign}</span>
                     <span className="text-xs text-emerald-600">
                       {isExpanded ? '[-]' : '[+]'}
