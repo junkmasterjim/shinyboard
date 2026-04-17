@@ -1,8 +1,8 @@
 {
   "metadata": {
     "teamName": "PokéMafia [PkéM]",
-    "lastUpdated": "2026-04-17T01:20:16.191Z",
-    "totalTeamShinies": 357
+    "lastUpdated": "2026-04-17T15:42:52.900Z",
+    "totalTeamShinies": 361
   },
   "players": [
     {
@@ -436,9 +436,22 @@
             "alpha": false,
             "safari": false
           }
+        },
+        {
+          "mon": {
+            "dexNo": 95,
+            "name": "Onix",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/95.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/95.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
         }
       ],
-      "score": 330
+      "score": 340
     },
     {
       "ign": "BroVeela",
@@ -2309,6 +2322,168 @@
       "score": 120
     },
     {
+      "ign": "Domaja",
+      "shinies": [
+        {
+          "mon": {
+            "dexNo": 472,
+            "name": "Gliscor",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/472.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/472.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        },
+        {
+          "mon": {
+            "dexNo": 195,
+            "name": "Quagsire",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/195.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/195.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        },
+        {
+          "mon": {
+            "dexNo": 629,
+            "name": "Vullaby",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/629.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/629.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        },
+        {
+          "mon": {
+            "dexNo": 630,
+            "name": "Mandibuzz",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/630.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/630.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        },
+        {
+          "mon": {
+            "dexNo": 272,
+            "name": "Ludicolo",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/272.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/272.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        },
+        {
+          "mon": {
+            "dexNo": 38,
+            "name": "Ninetales",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/38.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/38.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        },
+        {
+          "mon": {
+            "dexNo": 130,
+            "name": "Gyarados",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/130.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/130.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        },
+        {
+          "mon": {
+            "dexNo": 65,
+            "name": "Alakazam",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/65.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/65.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        },
+        {
+          "mon": {
+            "dexNo": 426,
+            "name": "Drifblim",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/426.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/426.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        },
+        {
+          "mon": {
+            "dexNo": 423,
+            "name": "Gastrodon",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/423.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/423.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        },
+        {
+          "mon": {
+            "dexNo": 400,
+            "name": "Bibarel",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/400.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/400.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        },
+        {
+          "mon": {
+            "dexNo": 560,
+            "name": "Scrafty",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/560.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/560.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        }
+      ],
+      "score": 120
+    },
+    {
       "ign": "ABCertified",
       "shinies": [
         {
@@ -2624,142 +2799,6 @@
         }
       ],
       "score": 110
-    },
-    {
-      "ign": "Domaja",
-      "shinies": [
-        {
-          "mon": {
-            "dexNo": 472,
-            "name": "Gliscor",
-            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/472.gif",
-            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/472.gif"
-          },
-          "modifiers": {
-            "secret": false,
-            "alpha": false,
-            "safari": false
-          }
-        },
-        {
-          "mon": {
-            "dexNo": 195,
-            "name": "Quagsire",
-            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/195.gif",
-            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/195.gif"
-          },
-          "modifiers": {
-            "secret": false,
-            "alpha": false,
-            "safari": false
-          }
-        },
-        {
-          "mon": {
-            "dexNo": 629,
-            "name": "Vullaby",
-            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/629.gif",
-            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/629.gif"
-          },
-          "modifiers": {
-            "secret": false,
-            "alpha": false,
-            "safari": false
-          }
-        },
-        {
-          "mon": {
-            "dexNo": 630,
-            "name": "Mandibuzz",
-            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/630.gif",
-            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/630.gif"
-          },
-          "modifiers": {
-            "secret": false,
-            "alpha": false,
-            "safari": false
-          }
-        },
-        {
-          "mon": {
-            "dexNo": 272,
-            "name": "Ludicolo",
-            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/272.gif",
-            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/272.gif"
-          },
-          "modifiers": {
-            "secret": false,
-            "alpha": false,
-            "safari": false
-          }
-        },
-        {
-          "mon": {
-            "dexNo": 38,
-            "name": "Ninetales",
-            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/38.gif",
-            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/38.gif"
-          },
-          "modifiers": {
-            "secret": false,
-            "alpha": false,
-            "safari": false
-          }
-        },
-        {
-          "mon": {
-            "dexNo": 130,
-            "name": "Gyarados",
-            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/130.gif",
-            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/130.gif"
-          },
-          "modifiers": {
-            "secret": false,
-            "alpha": false,
-            "safari": false
-          }
-        },
-        {
-          "mon": {
-            "dexNo": 65,
-            "name": "Alakazam",
-            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/65.gif",
-            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/65.gif"
-          },
-          "modifiers": {
-            "secret": false,
-            "alpha": false,
-            "safari": false
-          }
-        },
-        {
-          "mon": {
-            "dexNo": 426,
-            "name": "Drifblim",
-            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/426.gif",
-            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/426.gif"
-          },
-          "modifiers": {
-            "secret": false,
-            "alpha": false,
-            "safari": false
-          }
-        },
-        {
-          "mon": {
-            "dexNo": 423,
-            "name": "Gastrodon",
-            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/423.gif",
-            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/423.gif"
-          },
-          "modifiers": {
-            "secret": false,
-            "alpha": false,
-            "safari": false
-          }
-        }
-      ],
-      "score": 100
     },
     {
       "ign": "Catdog",
@@ -4936,6 +4975,25 @@
             "name": "Marill",
             "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/183.gif",
             "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/183.gif"
+          },
+          "modifiers": {
+            "secret": false,
+            "alpha": false,
+            "safari": false
+          }
+        }
+      ],
+      "score": 10
+    },
+    {
+      "ign": "TyTy",
+      "shinies": [
+        {
+          "mon": {
+            "dexNo": 20,
+            "name": "Raticate",
+            "spriteFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/20.gif",
+            "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/20.gif"
           },
           "modifiers": {
             "secret": false,
