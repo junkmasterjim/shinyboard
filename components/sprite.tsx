@@ -11,7 +11,7 @@ export default function Sprite({ dexNo, name, sprite }: SpriteProps) {
     <div className='size-16 relative'>
       <Image
         fill
-        className='object-contain'
+        className='object-contain pixelated'
         unoptimized
         alt={`${dexNo}: ${name}`}
         src={sprite}
