@@ -1,19 +1,30 @@
-import { Button } from "@/components/ui/button"
+import LeaderboardTable from '@/components/leaderboard/leaderboard-table';
+import data from "@/lib/leaderboard.json"
+import { Shiny } from '@/lib/types';
 
-export default function Page() {
+// Helper function to calculate score based on arbitrary rules
+const calculateScore = (shinies: Shiny[]): number => {
+  return shinies.reduce((total, shiny) => {
+    let points = 10; // Base points per shiny
+    if (shiny.modifiers.secret) points += 50;
+    if (shiny.modifiers.alpha) points += 25;
+    if (shiny.modifiers.safari) points += 15;
+    return total + points;
+  }, 0);
+};
+
+export default function Home() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
+    <main className="min-h-screen bg-black p-8 flex items-center justify-center">
+      <div className="w-full max-w-4xl space-y-6">
+        <header className="space-y-2 mb-8 text-center sm:text-left border-b-2 border-emerald-900 pb-4">
+          <h1 className="text-3xl font-mono font-bold text-emerald-400 tracking-tight uppercase">
+            &gt; Team_PokéMafia
+          </h1>
+        </header>
+
+        <LeaderboardTable players={data.players} />
       </div>
-    </div>
-  )
+    </main>
+  );
 }

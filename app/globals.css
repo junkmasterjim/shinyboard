@@ -127,3 +127,12 @@
     @apply font-mono;
     }
 }
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+/* Retro Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #00ff41; }
